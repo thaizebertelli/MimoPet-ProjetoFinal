@@ -1,0 +1,80 @@
+.card {
+  background-color: #f1ebf6;
+  border-radius: 16px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.imagemContainer {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.categoria {
+  font-size: 0.75rem;
+  color: #777777;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.nome {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #292929;
+}
+
+.preco {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #292929;
+}
+
+.linkDetalhes {
+  font-size: 0.85rem;
+  color: #7c5cfc;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.btnAdicionar {
+  width: 100%;
+  background-color: #ffb86c;
+  color: #292929;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.btnAdicionar:hover {
+  background-color: #ffa033;
+}

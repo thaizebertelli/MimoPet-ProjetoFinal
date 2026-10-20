@@ -1,17 +1,36 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import Catalogo from './pages/Catalogo';
 import { Carrinho } from './pages/Carrinho';
 import { Pagamento } from './pages/Pagamento';
 import { Sucesso } from './pages/Sucesso';
 import { Falha } from './pages/Falha';
 
 export function App() {
+  const location = useLocation();
+
+  // Define qual etapa mostrar no Header baseado na URL atual
+  let etapa = null;
+  if (location.pathname === '/carrinho') etapa = 'carrinho';
+  if (location.pathname === '/pagamento') etapa = 'pagamento';
+  if (location.pathname === '/sucesso' || location.pathname === '/falha') etapa = 'concluido';
+
   return (
-    <Routes>
-      <Route path="/" element={<Carrinho />} />
-      <Route path="/pagamento" element={<Pagamento />} />
-      <Route path="/sucesso" element={<Sucesso />} />
-      <Route path="/falha" element={<Falha />} />
-    </Routes>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <Header etapaAtual={etapa} />
+      <main style={{ flex: 1 }}>
+        <Routes>
+          <Route path="/" element={<Catalogo />} />
+          <Route path="/produtos" element={<Catalogo />} />
+          <Route path="/carrinho" element={<Carrinho />} />
+          <Route path="/pagamento" element={<Pagamento />} />
+          <Route path="/sucesso" element={<Sucesso />} />
+          <Route path="/falha" element={<Falha />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   );
 }
 

@@ -11,7 +11,7 @@
   --fonte: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -20,77 +20,6 @@
 body {
   font-family: var(--fonte);
   background-color: var(--fundo-pagina);
-  color: var(--texto-escuro);
-}
-
-/* Header & Progresso */
-.header-principal {
-  background-color: var(--roxo-principal);
-  color: white;
-}
-
-.container-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.logo-imagem {
-  height: 40px;
-  width: auto;
-  display: block;
-}
-
-.logo-texto {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #ffeb99;
-}
-
-.logo-texto span {
-  color: white;
-}
-
-.icone-carrinho-header {
-  position: relative;
-  font-size: 1.5rem;
-}
-
-.icone-sacola {
-  width: 28px;
-  height: 28px;
-  display: block;
-}
-
-.badge-quantidade {
-  position: absolute;
-  top: -5px;
-  right: -8px;
-  background-color: var(--laranja-botao);
-  color: var(--roxo-principal);
-  font-size: 0.75rem;
-  font-weight: bold;
-  padding: 2px 6px;
-  border-radius: 50%;
-}
-
-.barra-progresso {
-  background-color: #ffffff;
-  padding: 0.75rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  color: var(--texto-suave);
-  border-bottom: 1px solid #eee;
-}
-
-.barra-progresso .etapa.ativa {
-  font-weight: bold;
   color: var(--texto-escuro);
 }
 

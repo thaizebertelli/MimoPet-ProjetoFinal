@@ -3,7 +3,6 @@ import infoIcon from "../assets/img/info.svg";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Header } from "../components/Header";
 import { ResumoCompra } from "../components/ResumoCompra";
 import { produtosIniciais } from "../data/produtos";
 import { usePagamento } from "../hooks/usePagamento";
@@ -52,120 +51,117 @@ export function Pagamento() {
   });
 
   return (
-    <>
-      <Header etapaAtual="pagamento" />
-      <main className="container-carrinho">
-        <section className="secao-produtos">
-          <header className="titulo-secao-pagamento">
-            <h1>Pagamento</h1>
-            <p>Preencha os dados abaixo para finalizar seu pedido</p>
-          </header>
+    <main className="container-carrinho">
+      <section className="secao-produtos">
+        <header className="titulo-secao-pagamento">
+          <h1>Pagamento</h1>
+          <p>Preencha os dados abaixo para finalizar seu pedido</p>
+        </header>
 
-          <form
-            onSubmit={handleSubmit(processarCompra)}
-            className="form-pagamento"
-          >
-            <h2 className="subtitulo-form">Informações do cartão</h2>
+        <form
+          onSubmit={handleSubmit(processarCompra)}
+          className="form-pagamento"
+        >
+          <h2 className="subtitulo-form">Informações do cartão</h2>
 
-            <div className="campo-linha">
-              <label htmlFor="numero">Número do cartão</label>
-              <input
-                id="numero"
-                type="text"
-                placeholder="0000 0000 0000 0000"
-                {...register("numero")}
-                onChange={(e) => {
-                  const formatado = formatarNumeroCartao(e.target.value);
-                  setValue("numero", formatado, { shouldValidate: true });
-                }}
-              />
-              {errors.numero && (
-                <span className="erro-texto">{errors.numero.message}</span>
-              )}
-            </div>
-
-            <div className="linha-dupla-cartao">
-              <div className="campo-linha">
-                <label htmlFor="cvv">
-                  CVV{" "}
-                  <img
-                    src={infoIcon}
-                    alt="Informação"
-                    className="icone-info-img"
-                  />
-                </label>
-                <input
-                  id="cvv"
-                  type="text"
-                  placeholder="000"
-                  {...register("cvv")}
-                  onChange={(e) => {
-                    const formatado = formatarCVV(e.target.value);
-                    setValue("cvv", formatado, { shouldValidate: true });
-                  }}
-                />
-                {errors.cvv && (
-                  <span className="erro-texto">{errors.cvv.message}</span>
-                )}
-              </div>
-
-              <div className="campo-linha">
-                <label htmlFor="validade">Validade</label>
-                <input
-                  id="validade"
-                  type="text"
-                  placeholder="MM/AA"
-                  {...register("validade")}
-                  onChange={(e) => {
-                    const formatado = formatarValidade(e.target.value);
-                    setValue("validade", formatado, { shouldValidate: true });
-                  }}
-                />
-                {errors.validade && (
-                  <span className="erro-texto">{errors.validade.message}</span>
-                )}
-              </div>
-            </div>
-
-            <div className="campo-linha">
-              <label htmlFor="titular">Titular do cartão</label>
-              <input
-                id="titular"
-                type="text"
-                placeholder="Nome no cartão"
-                {...register("titular")}
-                onChange={(e) => {
-                  const formatado = formatarTitular(e.target.value);
-                  setValue("titular", formatado, { shouldValidate: true });
-                }}
-              />
-              {errors.titular && (
-                <span className="erro-texto">{errors.titular.message}</span>
-              )}
-            </div>
-
-            {processando ? (
-              <div className="card-processando">
-                <div className="conteudo-processando">
-                  <span className="spinner-carregando"></span>
-                  <span>Processando compra</span>
-                </div>
-                <p className="subtexto-processando">
-                  Aguarde enquanto finalizamos seu pedido.
-                </p>
-              </div>
-            ) : (
-              <button type="submit" className="btn-continuar">
-                Finalizar Compra
-              </button>
+          <div className="campo-linha">
+            <label htmlFor="numero">Número do cartão</label>
+            <input
+              id="numero"
+              type="text"
+              placeholder="0000 0000 0000 0000"
+              {...register("numero")}
+              onChange={(e) => {
+                const formatado = formatarNumeroCartao(e.target.value);
+                setValue("numero", formatado, { shouldValidate: true });
+              }}
+            />
+            {errors.numero && (
+              <span className="erro-texto">{errors.numero.message}</span>
             )}
-          </form>
-        </section>
+          </div>
 
-        <section className="secao-resumo">
-          <ResumoCompra produtos={produtosIniciais} />
-        </section>
-      </main>
-    </>
+          <div className="linha-dupla-cartao">
+            <div className="campo-linha">
+              <label htmlFor="cvv">
+                CVV{" "}
+                <img
+                  src={infoIcon}
+                  alt="Informação"
+                  className="icone-info-img"
+                />
+              </label>
+              <input
+                id="cvv"
+                type="text"
+                placeholder="000"
+                {...register("cvv")}
+                onChange={(e) => {
+                  const formatado = formatarCVV(e.target.value);
+                  setValue("cvv", formatado, { shouldValidate: true });
+                }}
+              />
+              {errors.cvv && (
+                <span className="erro-texto">{errors.cvv.message}</span>
+              )}
+            </div>
+
+            <div className="campo-linha">
+              <label htmlFor="validade">Validade</label>
+              <input
+                id="validade"
+                type="text"
+                placeholder="MM/AA"
+                {...register("validade")}
+                onChange={(e) => {
+                  const formatado = formatarValidade(e.target.value);
+                  setValue("validade", formatado, { shouldValidate: true });
+                }}
+              />
+              {errors.validade && (
+                <span className="erro-texto">{errors.validade.message}</span>
+              )}
+            </div>
+          </div>
+
+          <div className="campo-linha">
+            <label htmlFor="titular">Titular do cartão</label>
+            <input
+              id="titular"
+              type="text"
+              placeholder="Nome no cartão"
+              {...register("titular")}
+              onChange={(e) => {
+                const formatado = formatarTitular(e.target.value);
+                setValue("titular", formatado, { shouldValidate: true });
+              }}
+            />
+            {errors.titular && (
+              <span className="erro-texto">{errors.titular.message}</span>
+            )}
+          </div>
+
+          {processando ? (
+            <div className="card-processando">
+              <div className="conteudo-processando">
+                <span className="spinner-carregando"></span>
+                <span>Processando compra</span>
+              </div>
+              <p className="subtexto-processando">
+                Aguarde enquanto finalizamos seu pedido.
+              </p>
+            </div>
+          ) : (
+            <button type="submit" className="btn-continuar">
+              Finalizar Compra
+            </button>
+          )}
+        </form>
+      </section>
+
+      <section className="secao-resumo">
+        <ResumoCompra produtos={produtosIniciais} />
+      </section>
+    </main>
   );
 }

@@ -1,0 +1,100 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #292929;
+}
+
+.hero p {
+  color: #777777;
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.buscaContainer {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.inputBusca {
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  border-radius: 25px;
+  border: 1px solid #dddddd;
+  outline: none;
+  font-size: 0.95rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.conteudoPrincipal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.filtros {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.filtros button {
+  background-color: #f1ebf6;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #292929;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.filtros button.ativo {
+  background-color: #7c5cfc;
+  color: #ffffff;
+}
+
+.infoContagem {
+  font-size: 0.85rem;
+  color: #777777;
+  margin-bottom: 1rem;
+}
+
+.gridProdutos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Responsivo para Desktop */
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .conteudoPrincipal {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .filtros {
+    flex-direction: column;
+    min-width: 200px;
+  }
+
+  .gridProdutos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
