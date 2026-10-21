@@ -1,40 +1,62 @@
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .hero {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .hero h1 {
   font-size: 1.8rem;
-  font-weight: 800;
-  color: #292929;
+  color: var(--texto-escuro);
+  font-weight: bold;
 }
 
 .hero p {
-  color: #777777;
+  color: var(--texto-suave);
   font-size: 0.95rem;
-  margin-top: 0.25rem;
-  margin-bottom: 1.5rem;
+  margin-top: 0.3rem;
 }
 
 .buscaContainer {
-  max-width: 500px;
-  margin: 0 auto;
+  display: flex;
+  gap: 0.5rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 0.4rem 0.8rem;
+  align-items: center;
 }
 
-.inputBusca {
-  width: 100%;
-  padding: 0.85rem 1.2rem;
-  border-radius: 25px;
-  border: 1px solid #dddddd;
+.buscaInput {
+  border: none;
   outline: none;
+  width: 100%;
+  padding: 0.5rem;
   font-size: 0.95rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.btnBuscar {
+  background-color: var(--roxo-principal);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .btnBuscar {
+    display: block;
+  }
 }
 
 .conteudoPrincipal {
@@ -43,58 +65,440 @@
   gap: 1.5rem;
 }
 
-.filtros {
+@media (min-width: 768px) {
+  .conteudoPrincipal {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+/* Categorias no Mobile */
+.categoriasMobile {
   display: flex;
   gap: 0.5rem;
   overflow-x: auto;
   padding-bottom: 0.5rem;
 }
 
-.filtros button {
-  background-color: #f1ebf6;
+.btnCategoriaMobile {
+  background: #eee;
   border: none;
   padding: 0.6rem 1.2rem;
-  border-radius: 20px;
+  border-radius: 8px;
   font-weight: 600;
-  color: #292929;
+  font-size: 0.9rem;
   cursor: pointer;
   white-space: nowrap;
+  color: var(--texto-escuro);
 }
 
-.filtros button.ativo {
-  background-color: #7c5cfc;
-  color: #ffffff;
+.btnCategoriaMobileActive {
+  background: var(--roxo-principal);
+  color: white;
 }
 
-.infoContagem {
+/* Categorias no Desktop Sidebar */
+.sidebarDesktop {
+  display: none;
+  width: 220px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .categoriasMobile {
+    display: none;
+  }
+  .sidebarDesktop {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+.tituloSidebar {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: var(--texto-escuro);
+}
+
+.itemCategoriaDesktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--texto-escuro);
+  text-align: left;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.itemCategoriaDesktopActive {
+  background: var(--roxo-principal);
+  color: white;
+  font-weight: bold;
+}
+
+.badgeQtd {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.areaProdutos {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.barrainfoFiltro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 0.85rem;
-  color: #777777;
-  margin-bottom: 1rem;
+  color: var(--texto-suave);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Select de Ordenação Estilizado no Tema */
+.selectOrdenacao {
+  background-color: #ffffff;
+  color: var(--texto-escuro);
+  border: 1.5px solid var(--roxo-principal);
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.selectOrdenacao:focus {
+  box-shadow: 0 0 0 2px #7c5cfc33;
 }
 
 .gridProdutos {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .gridProdutos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+.beneficiosRodape {
   display: grid;
   grid-template-columns: 1fr;
+  gap: 1rem;
+  background: #f1ebf6;
+  border-radius: 12px;
+  padding: 1.2rem;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .beneficiosRodape {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.beneficioItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.beneficioItem strong {
+  font-size: 0.9rem;
+  color: var(--texto-escuro);
+  display: block;
+}
+
+.beneficioItem p {
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+/* Grid de Produtos */
+.gridProdutos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 👈 2 colunas no celular */
+  gap: 0.75rem; /* Espaçamento compacto para mobile */
+}
+
+@media (min-width: 768px) {
+  .gridProdutos {
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas no desktop */
+    gap: 1.25rem;
+  }
+}
+
+/* Bloco de Benefícios no Rodapé */
+.beneficiosRodape {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  background: #f1ebf6;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .beneficiosRodape {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.beneficioItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.beneficioItem strong {
+  font-size: 0.95rem;
+  color: var(--texto-escuro);
+  display: block;
+}
+
+.beneficioItem p {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  margin-top: 0.15rem;
+}
+
+.containerCatalogo {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
 }
 
-/* Responsivo para Desktop */
-@media (min-width: 768px) {
-  .hero h1 {
-    font-size: 2.4rem;
-  }
+.heroCatalogo {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
 
+.heroCatalogo h1 {
+  font-size: 1.8rem;
+  color: var(--texto-escuro);
+  font-weight: bold;
+}
+
+.heroCatalogo p {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  margin-top: 0.3rem;
+}
+
+.buscaContainer {
+  display: flex;
+  gap: 0.5rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 0.4rem 0.8rem;
+  align-items: center;
+}
+
+.buscaInput {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.btnBuscar {
+  background-color: var(--roxo-principal);
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .btnBuscar {
+    display: block;
+  }
+}
+
+.conteudoPrincipal {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
   .conteudoPrincipal {
     flex-direction: row;
     align-items: flex-start;
   }
+}
 
-  .filtros {
-    flex-direction: column;
-    min-width: 200px;
+.categoriasMobile {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.btnCategoriaMobile {
+  background: #eee;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  white-space: nowrap;
+  color: var(--texto-escuro);
+}
+
+.btnCategoriaMobile.active {
+  background: var(--roxo-principal);
+  color: white;
+}
+
+.sidebarDesktop {
+  display: none;
+  width: 220px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .categoriasMobile {
+    display: none;
   }
+  .sidebarDesktop {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
 
+.tituloSidebar {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: var(--texto-escuro);
+}
+
+.itemCategoriaDesktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--texto-escuro);
+  text-align: left;
+  width: 100%;
+}
+
+.itemCategoriaDesktop.active {
+  background: var(--roxo-principal);
+  color: white;
+  font-weight: bold;
+}
+
+.badgeQtd {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.areaProdutos {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.barraInfoFiltro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.selectOrdenacao {
+  background-color: #ffffff;
+  color: var(--texto-escuro);
+  border: 1.5px solid var(--roxo-principal);
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  outline: none;
+  cursor: pointer;
+}
+
+/* 2 colunas no celular e 3 no desktop */
+.gridProdutos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
   .gridProdutos {
     grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
   }
+}
+
+.beneficiosRodape {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  background: #f1ebf6;
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .beneficiosRodape {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.beneficioItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.beneficioItem strong {
+  font-size: 0.95rem;
+  color: var(--texto-escuro);
+  display: block;
+}
+
+.beneficioItem p {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  margin-top: 0.15rem;
 }

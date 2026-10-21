@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import Catalogo from './pages/Catalogo';
+import { DetalhesProduto } from './pages/DetalhesProduto';
 import { Carrinho } from './pages/Carrinho';
 import { Pagamento } from './pages/Pagamento';
 import { Sucesso } from './pages/Sucesso';
@@ -23,6 +24,7 @@ export function App() {
         <Routes>
           <Route path="/" element={<Catalogo />} />
           <Route path="/produtos" element={<Catalogo />} />
+          <Route path="/produtos/:id" element={<DetalhesProduto />} />
           <Route path="/carrinho" element={<Carrinho />} />
           <Route path="/pagamento" element={<Pagamento />} />
           <Route path="/sucesso" element={<Sucesso />} />

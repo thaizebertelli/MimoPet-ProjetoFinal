@@ -11,42 +11,41 @@ export default function ProdutoCard({ produto }) {
   });
 
   return (
-    <div className={styles.card}>
-      <div className={styles.imagemContainer}>
-        <img src={produto.imagem} alt={produto.nome} className={styles.imagem} />
+    <div className={styles.cardProduto}>
+      <div className={styles.topoCard}>
+        <div className={styles.imagemContainer}>
+          <img src={produto.imagem} alt={produto.nome} className={styles.imagemProduto} />
+        </div>
+
+        <div className={styles.conteudoProduto}>
+          <span className={styles.categoriaProduto}>
+            {produto.categoria || 'Brinquedos para pets'}
+          </span>
+          <h3 className={styles.nomeProduto}>{produto.nome}</h3>
+          
+          {produto.descricao && (
+            <p className={styles.descricaoCurta}>{produto.descricao}</p>
+          )}
+
+          <p className={styles.precoProduto}>{precoFormatado}</p>
+
+          <Link to={`/produtos/${produto.id}`} className={styles.linkDetalhesMobile}>
+            Ver detalhes
+          </Link>
+        </div>
       </div>
 
-      <div className={styles.conteudo}>
-        <span className={styles.categoria}>{produto.categoria}</span>
-        <h3 className={styles.nome}>{produto.nome}</h3>
-        <p className={styles.preco}>{precoFormatado}</p>
+      <button
+        type="button"
+        onClick={() => adicionarAoCarrinho(produto)}
+        className={styles.btnAdicionarCarrinho}
+      >
+        <span>🛍️</span> Adicionar ao carrinho
+      </button>
 
-        <Link to={`/produtos/${produto.id}`} className={styles.linkDetalhes}>
-          Ver detalhes &rarr;
-        </Link>
-
-        <button
-          type="button"
-          onClick={() => adicionarAoCarrinho(produto)}
-          className={styles.btnAdicionar}
-        >
-          <svg
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-            <line x1="3" y1="6" x2="21" y2="6" />
-            <path d="M16 10a4 4 0 0 1-8 0" />
-          </svg>
-          Adicionar ao carrinho
-        </button>
-      </div>
+      <Link to={`/produtos/${produto.id}`} className={styles.linkDetalhesDesktop}>
+        Ver detalhes &rarr;
+      </Link>
     </div>
   );
 }
