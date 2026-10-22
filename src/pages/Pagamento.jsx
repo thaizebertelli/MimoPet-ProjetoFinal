@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { ResumoCompra } from "../components/ResumoCompra";
-import { produtosIniciais } from "../data/produtos";
+import { useCarrinho } from "../context/CarrinhoContext";
 import { usePagamento } from "../hooks/usePagamento";
 
 // Funções de Máscara e Filtro
@@ -40,6 +40,7 @@ const pagamentoSchema = z.object({
 
 export function Pagamento() {
   const { processarCompra, processando } = usePagamento();
+  const { carrinho } = useCarrinho();
 
   const {
     register,
@@ -160,7 +161,7 @@ export function Pagamento() {
       </section>
 
       <section className="secao-resumo">
-        <ResumoCompra produtos={produtosIniciais} />
+        <ResumoCompra produtos={carrinho} />
       </section>
     </main>
   );

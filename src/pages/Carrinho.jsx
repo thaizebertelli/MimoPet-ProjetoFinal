@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useCarrinho } from '../context/CarrinhoContext';
+import { ResumoCompra } from '../components/ResumoCompra';
+
+import lixeiraIcon from "../assets/img/iconLixo.svg";
+import menosIcon from "../assets/img/iconMenos.svg";
+import maisIcon from "../assets/img/iconMais.svg";
 
 export function Carrinho() {
   const { 
@@ -9,11 +14,6 @@ export function Carrinho() {
     limparCarrinho, 
     valorTotal 
   } = useCarrinho();
-
-  const valorTotalFormatado = valorTotal.toLocaleString('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  });
 
   return (
     <main className="container-carrinho">
@@ -41,7 +41,8 @@ export function Carrinho() {
                 gap: '0.4rem',
               }}
             >
-              🗑️ Excluir tudo
+              <img src={lixeiraIcon} alt="Excluir tudo" style={{ width: '16px', height: '16px' }} /> 
+              Excluir tudo
             </button>
           </div>
         )}
@@ -86,14 +87,16 @@ export function Carrinho() {
                         type="button"
                         onClick={() => atualizarQuantidade(item.id, item.quantidade - 1)}
                       >
-                        -
+                        <img src={menosIcon} alt="Diminuir quantidade" className="icone-qtd" />
                       </button>
+
                       <span className="numero-quantidade">{item.quantidade}</span>
+
                       <button
                         type="button"
                         onClick={() => atualizarQuantidade(item.id, item.quantidade + 1)}
                       >
-                        +
+                        <img src={maisIcon} alt="Aumentar quantidade" className="icone-qtd" />
                       </button>
                     </div>
 
@@ -106,7 +109,7 @@ export function Carrinho() {
                     className="btn-remover"
                     title="Remover item"
                   >
-                    <span className="icone-lixeira" role="img" aria-label="Remover">🗑️</span>
+                    <img src={lixeiraIcon} alt="Remover" className="icone-lixeira" />
                   </button>
                 </div>
               );
@@ -118,22 +121,7 @@ export function Carrinho() {
       {/* Resumo da Compra */}
       {carrinho.length > 0 && (
         <section className="secao-resumo">
-          <div className="resumo-box">
-            <h2>Resumo do pedido</h2>
-            <div className="linha-resumo">
-              <span>Subtotal</span>
-              <span>{valorTotalFormatado}</span>
-            </div>
-            <div className="linha-resumo">
-              <span>Entrega</span>
-              <span className="frete-gratis">Grátis</span>
-            </div>
-            <div className="linha-resumo total">
-              <strong>Total</strong>
-              <strong>{valorTotalFormatado}</strong>
-            </div>
-          </div>
-
+          <ResumoCompra produtos={carrinho} />
           <Link to="/pagamento" className="btn-continuar">
             Continuar Pagamento
           </Link>

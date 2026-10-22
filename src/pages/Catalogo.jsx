@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import db from '../../db.json';
 import ProdutoCard from '../components/ProdutoCard';
-import styles from '../assets/styles/Catalogo.module.css'; // 👈 Importação como CSS Module
+import styles from '../assets/styles/Catalogo.module.css';
 
 export default function Catalogo() {
   const [busca, setBusca] = useState('');
@@ -108,7 +108,6 @@ export default function Catalogo() {
           ))}
         </aside>
 
-        {/* Lista de Produtos */}
         <section className={styles.areaProdutos}>
           <div className={styles.barraInfoFiltro}>
             <span>{produtosFiltrados.length} produtos encontrados</span>

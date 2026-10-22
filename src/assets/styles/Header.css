@@ -64,17 +64,17 @@
 }
 
 .barra-progresso {
-  background-color: #ffffff; /* Fundo branco de ponta a ponta na tela toda */
+  background-color: #ffffff; 
   width: 100%;
   border-bottom: 1px solid #eee;
 }
 
 .barra-progresso-conteudo {
-  max-width: 1100px; /* Mesma largura máxima do container do carrinho */
-  margin: 0 auto;    /* Centraliza o bloco */
-  padding: 0.75rem 1.5rem; /* Espaçamento interno */
+  max-width: 1100px; 
+  margin: 0 auto;   
+  padding: 0.75rem 1.5rem; 
   display: flex;
-  justify-content: flex-start; /* Alinha as etapas à esquerda */
+  justify-content: flex-start; 
   align-items: center;
   gap: 0.5rem;
   font-size: 0.9rem;

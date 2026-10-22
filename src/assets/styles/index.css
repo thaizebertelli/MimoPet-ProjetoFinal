@@ -59,7 +59,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  position: relative; /* Essencial para prender a lixeira no canto */
+  position: relative;
 }
 
 .imagem-produto {
@@ -90,13 +90,13 @@ body {
 .controles-quantidade { 
   display: inline-flex;
   align-items: center;
-  justify-content: center; /* Centraliza os itens */
+  justify-content: center; 
   background-color: var(--laranja-botao);
   border-radius: 8px;
   margin: 0.5rem 0;
-  padding: 8px 16px; /* Reduz o padding vertical para ficar menor */
-  gap: 16px; /* Ajusta o espaçamento interno */
-  width: fit-content; /* Garante que não ocupa a linha toda */
+  padding: 8px 16px; 
+  gap: 16px; 
+  width: fit-content; 
 }
 
 .numero-quantidade {
@@ -176,14 +176,12 @@ body {
 
 .btn-continuar {
 
-  /* Reseta os estilos nativos do navegador */
   appearance: none;
   -webkit-appearance: none;
   border: none;
   outline: none;
   box-shadow: none;
 
-  /* Estilos personalizados */
   display: block;
   width: 100%;
   background-color: var(--laranja-botao);
@@ -201,7 +199,6 @@ body {
   background-color: var(--laranja-hover);
 }
 
-/* Layout Responsivo para Desktop */
 @media (min-width: 768px) {
   .container-carrinho {
     flex-direction: row;
@@ -212,6 +209,18 @@ body {
   .secao-produtos {
     flex: 2;
   }
+
+  .secao-produtos .titulo-secao h1 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.secao-produtos .titulo-secao p {
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
 
   .secao-resumo {
     flex: 1;
@@ -227,7 +236,6 @@ body {
   }
 }
 
-/* Formulário da Tela de Pagamento */
 .titulo-secao-pagamento h1 {
   font-size: 1.6rem;
   text-align: left;
