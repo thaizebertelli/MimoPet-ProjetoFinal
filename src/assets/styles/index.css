@@ -59,7 +59,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  position: relative;
+  position: relative; /* Essencial para prender a lixeira no canto */
 }
 
 .imagem-produto {
@@ -72,6 +72,9 @@ body {
 
 .detalhes-produto {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .nome-produto {
@@ -87,15 +90,17 @@ body {
 .controles-quantidade { 
   display: inline-flex;
   align-items: center;
+  justify-content: center; /* Centraliza os itens */
   background-color: var(--laranja-botao);
   border-radius: 8px;
   margin: 0.5rem 0;
-  padding: 8px 10px;
-  gap: 24px;
+  padding: 8px 16px; /* Reduz o padding vertical para ficar menor */
+  gap: 16px; /* Ajusta o espaçamento interno */
+  width: fit-content; /* Garante que não ocupa a linha toda */
 }
 
 .numero-quantidade {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: bold;
   color: var(--texto-escuro);
 }
@@ -103,12 +108,12 @@ body {
 .controles-quantidade button {
   background: none;
   border: none;
-  font-size: 1rem;
-  font-weight: bold;
+  font-size: 1.7rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--texto-escuro);
 }
 
 .icone-qtd {
@@ -123,6 +128,9 @@ body {
 }
 
 .btn-remover {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -131,7 +139,6 @@ body {
   justify-content: center;
   padding: 4px;
   color: var(--texto-suave);
-  transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .icone-lixeira {
@@ -220,12 +227,10 @@ body {
   }
 }
 
-
-
 /* Formulário da Tela de Pagamento */
 .titulo-secao-pagamento h1 {
   font-size: 1.6rem;
-  text-align: center;
+  text-align: left;
 }
 
 .titulo-secao-pagamento p {

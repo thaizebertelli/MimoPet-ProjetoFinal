@@ -29,20 +29,22 @@ export function Header({ etapaAtual }) {
       </div>
 
       {etapaAtual && (
-        <nav className="barra-progresso" aria-label="Progresso da compra">
-          <span className={etapaAtual === "carrinho" ? "etapa ativa" : "etapa"}>
-            Carrinho
-          </span>
-          <span className="separador">&gt;</span>
-          <span className={etapaAtual === "pagamento" ? "etapa ativa" : "etapa"}>
-            Pagamento
-          </span>
-          <span className="separador">&gt;</span>
-          <span className={etapaAtual === "concluido" ? "etapa ativa" : "etapa"}>
-            Concluído
-          </span>
-        </nav>
-      )}
+  <nav className="barra-progresso" aria-label="Progresso da compra">
+    <div className="barra-progresso-conteudo">
+      <span className={etapaAtual === "carrinho" ? "etapa ativa" : "etapa"}>
+        Carrinho
+      </span>
+      <span className="separador">&gt;</span>
+      <span className={etapaAtual === "pagamento" ? "etapa ativa" : "etapa"}>
+        Pagamento
+      </span>
+      <span className="separador">&gt;</span>
+      <span className={etapaAtual === "concluido" ? "etapa ativa" : "etapa"}>
+        Concluído
+      </span>
+    </div>
+  </nav>
+)}
     </header>
   );
 }
