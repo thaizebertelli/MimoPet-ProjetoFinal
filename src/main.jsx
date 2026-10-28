@@ -7,7 +7,8 @@ import './assets/styles/index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* Usando o BASE_URL dinâmico do Vite */}
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <CarrinhoProvider>
         <App />
       </CarrinhoProvider>
