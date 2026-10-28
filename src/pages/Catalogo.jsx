@@ -131,10 +131,27 @@ export default function Catalogo() {
             ))}
           </div>
 
-          {produtosFiltrados.length === 0 && (
-            <p style={{ textAlign: 'center', padding: '2rem', color: 'var(--texto-suave)' }}>
-              Nenhum produto encontrado.
-            </p>
+         {produtosFiltrados.length === 0 && (
+            <div style={{ textAlign: 'center', padding: '3rem 1rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+              <p style={{ color: 'var(--texto-suave)', fontSize: '1.1rem', fontWeight: '500' }}>
+                Nenhum produto encontrado
+              </p>
+              <button
+                type="button"
+                onClick={() => setBusca('')}
+                style={{
+                  backgroundColor: 'var(--laranja-botao, #FFB86C)',
+                  border: 'none',
+                  padding: '0.6rem 1.2rem',
+                  borderRadius: '8px',
+                  fontWeight: 'bold',
+                  cursor: 'pointer',
+                  color: 'var(--texto-escuro, #292929)'
+                }}
+              >
+                Limpar busca
+              </button>
+            </div>
           )}
 
           <p style={{ textAlign: 'center', color: 'var(--texto-suave)', fontSize: '0.85rem', marginTop: '1.5rem' }}>

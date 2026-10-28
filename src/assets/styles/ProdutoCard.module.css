@@ -46,7 +46,11 @@
 .nomeProduto {
   font-size: 1rem;
   font-weight: bold;
-  color: var(--texto-escuro);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .descricaoCurta {
@@ -88,6 +92,7 @@
   justify-content: center;
   gap: 0.4rem;
   transition: background 0.2s;
+  margin-top: auto;
 }
 
 .btnAdicionarCarrinho:hover {
