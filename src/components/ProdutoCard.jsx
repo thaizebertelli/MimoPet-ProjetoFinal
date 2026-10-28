@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useCarrinho } from '../context/CarrinhoContext';
 import styles from '../assets/styles/ProdutoCard.module.css';
+import CarrinhoIcon from "../assets/img/iconCarrinho.svg";
 
 export default function ProdutoCard({ produto }) {
   const { adicionarAoCarrinho } = useCarrinho();
@@ -40,7 +41,8 @@ export default function ProdutoCard({ produto }) {
         onClick={() => adicionarAoCarrinho(produto)}
         className={styles.btnAdicionarCarrinho}
       >
-        <span>🛍️</span> Adicionar ao carrinho
+        <img src={CarrinhoIcon} alt="" className={styles.iconeCarrinho} /> 
+        Adicionar ao carrinho
       </button>
 
       <Link to={`/produtos/${produto.id}`} className={styles.linkDetalhesDesktop}>
