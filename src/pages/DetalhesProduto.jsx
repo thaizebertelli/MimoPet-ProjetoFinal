@@ -1,8 +1,10 @@
-import { useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import db from '../../db.json';
-import { useCarrinho } from '../context/CarrinhoContext';
-import '../assets/styles/DetalhesProduto.css';
+import { useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import db from "../../db.json";
+import { useCarrinho } from "../context/CarrinhoContext";
+import "../assets/styles/DetalhesProduto.css";
+import { ProdutoNaoEncontrado } from "./ProdutoNaoEncontrado";
+import iconCarrinho from "../assets/img/iconCarrinho.svg"; // Ajuste o caminho conforme a pasta onde o arquivo está
 
 export function DetalhesProduto() {
   const { id } = useParams();
@@ -13,19 +15,12 @@ export function DetalhesProduto() {
   const produto = produtosLista.find((p) => String(p.id) === String(id));
 
   if (!produto) {
-    return (
-      <div className="detalhes-container" style={{ textAlign: 'center', padding: '4rem 1rem' }}>
-        <h2>Produto não encontrado</h2>
-        <Link to="/" className="link-voltar-catalogo" style={{ marginTop: '1rem' }}>
-          Voltar para o catálogo
-        </Link>
-      </div>
-    );
+    return <ProdutoNaoEncontrado />;
   }
 
-  const precoFormatado = produto.preco.toLocaleString('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
+  const precoFormatado = produto.preco.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL",
   });
 
   const incrementar = () => setQuantidade((prev) => prev + 1);
@@ -47,7 +42,11 @@ export function DetalhesProduto() {
 
       <div className="produto-grid-principal">
         <div className="produto-imagem-wrapper">
-          <img src={produto.imagem} alt={produto.nome} className="produto-imagem-grande" />
+          <img
+            src={produto.imagem}
+            alt={produto.nome}
+            className="produto-imagem-grande"
+          />
         </div>
 
         <div className="produto-info-wrapper">
@@ -61,20 +60,40 @@ export function DetalhesProduto() {
           </div>
 
           <div className="badge-estoque">
-            <span>✓ Em estoque • {produto.estoque || 10} unidades disponíveis</span>
+            <span>
+              ✓ Em estoque • {produto.estoque || 10} unidades disponíveis
+            </span>
           </div>
 
           <div className="quantidade-container">
             <span className="quantidade-label">Quantidade</span>
             <div className="controle-quantidade">
-              <button type="button" onClick={decrementar} className="btn-qtd">-</button>
+              <button type="button" onClick={decrementar} className="btn-qtd">
+                -
+              </button>
               <span className="valor-qtd">{quantidade}</span>
-              <button type="button" onClick={incrementar} className="btn-qtd">+</button>
+              <button type="button" onClick={incrementar} className="btn-qtd">
+                +
+              </button>
             </div>
           </div>
 
-          <button type="button" onClick={handleAdicionar} className="btn-adicionar-grande">
-            🛒 Adicionar ao carrinho
+          <button
+            type="button"
+            onClick={handleAdicionar}
+            className="btn-adicionar-grande"
+          >
+            <img
+              src={iconCarrinho}
+              alt=""
+              style={{
+                width: "20px",
+                height: "20px",
+                marginRight: "8px",
+                verticalAlign: "middle",
+              }}
+            />
+            Adicionar ao carrinho
           </button>
         </div>
       </div>
@@ -82,7 +101,7 @@ export function DetalhesProduto() {
       <div className="secoes-inferiores-grid">
         <div className="bloco-info">
           <h3>Conselho de uso</h3>
-          <p>{produto.conselhoUso || 'Ofereça sob supervisão do tutor.'}</p>
+          <p>{produto.conselhoUso || "Ofereça sob supervisão do tutor."}</p>
         </div>
 
         <div className="bloco-info">
@@ -94,11 +113,11 @@ export function DetalhesProduto() {
             </div>
             <div className="linha-tabela">
               <span>Formato</span>
-              <span>{produto.formato || 'N/A'}</span>
+              <span>{produto.formato || "N/A"}</span>
             </div>
             <div className="linha-tabela">
               <span>Conteúdo</span>
-              <span>{produto.conteudo || '1 unidade'}</span>
+              <span>{produto.conteudo || "1 unidade"}</span>
             </div>
           </div>
         </div>

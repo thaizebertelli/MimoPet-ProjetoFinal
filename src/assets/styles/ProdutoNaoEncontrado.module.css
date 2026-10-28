@@ -1,0 +1,139 @@
+.paginaContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 120px);
+  background-color: #FFFFFF;
+}
+
+.breadcrumb {
+  padding: 1.5rem 3rem;
+  font-size: 0.9rem;
+  color: #6B7280;
+}
+
+.breadcrumb a {
+  color: #7C3AED;
+  text-decoration: none;
+}
+
+.breadcrumb span {
+  margin: 0 0.5rem;
+}
+
+.conteudoCentral {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  padding: 3rem 2rem;
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.circuloIlustracao {
+  width: 320px;
+  height: 320px;
+  background-color: #F3EFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.imgIlustracao {
+  width: 130px;
+  height: 130px;
+  opacity: 0.85;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  max-width: 480px;
+}
+
+.subtituloTopo {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #7C3AED;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem; /* Respiro controlado até o título */
+}
+
+.titulo {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1F2937;
+  line-height: 1.2;
+  margin-bottom: 1rem; /* Respiro controlado até a descrição */
+}
+
+.descricao {
+  font-size: 1rem;
+  color: #4B5563;
+  line-height: 1.6;
+  margin-bottom: 2rem; /* Respiro seguro antes do bloco de ações */
+}
+
+/* Container que empilha o botão e o texto de baixo separados corretamente */
+.acoesWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem; /* Distância exata entre o botão e a frase de rodapé */
+}
+
+.btnVoltar {
+  background-color: #FFB86C;
+  color: #1F2937;
+  padding: 0.9rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+  display: inline-flex;
+  align-items: center;
+}
+
+.btnVoltar:hover {
+  filter: brightness(0.95);
+}
+
+.rodapeNota {
+  font-size: 0.85rem;
+  color: #9CA3AF;
+  display: block;
+}
+
+/* Responsivo para Celular/Tablet */
+@media (max-width: 768px) {
+  .conteudoCentral {
+    flex-direction: column;
+    text-align: center;
+    gap: 2.5rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .infoWrapper, .acoesWrapper {
+    align-items: center;
+    text-align: center;
+  }
+
+  .circuloIlustracao {
+    width: 240px;
+    height: 240px;
+  }
+
+  .titulo {
+    font-size: 1.7rem;
+  }
+}

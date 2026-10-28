@@ -7,6 +7,8 @@ import { Carrinho } from './pages/Carrinho';
 import { Pagamento } from './pages/Pagamento';
 import { Sucesso } from './pages/Sucesso';
 import { Falha } from './pages/Falha';
+import { ProdutoNaoEncontrado } from './pages/ProdutoNaoEncontrado';
+import Erro404 from './pages/Erro404';
 
 export function App() {
   const location = useLocation();
@@ -29,6 +31,8 @@ export function App() {
           <Route path="/pagamento" element={<Pagamento />} />
           <Route path="/sucesso" element={<Sucesso />} />
           <Route path="/falha" element={<Falha />} />
+          <Route path="/produto-nao-encontrado" element={<ProdutoNaoEncontrado />} />
+          <Route path="*" element={<Erro404 />} />
         </Routes>
       </main>
       <Footer />
