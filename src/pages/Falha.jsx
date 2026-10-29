@@ -1,12 +1,10 @@
 import falhaIcon from "../assets/img/falha.svg";
 
 import { Link } from "react-router-dom";
-import { Header } from "../components/Header";
 
 export function Falha() {
   return (
     <>
-      <Header etapaAtual="concluido" />
       <main className="container-resultado">
         <div className="icone-resultado falha">
           <img

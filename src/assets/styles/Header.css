@@ -1,0 +1,87 @@
+.header-principal {
+  background-color: var(--roxo-principal);
+  color: white;
+}
+
+.container-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.logo-imagem {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.acoes-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.link-produtos {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: opacity 0.2s ease;
+}
+
+.link-produtos:hover {
+  opacity: 0.85;
+}
+
+.icone-carrinho-header {
+  position: relative;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.icone-sacola {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.badge-quantidade {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background-color: var(--laranja-botao);
+  color: var(--texto-escuro);
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  min-width: 18px;
+  text-align: center;
+}
+
+.barra-progresso {
+  background-color: #ffffff; 
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+
+.barra-progresso-conteudo {
+  max-width: 1100px; 
+  margin: 0 auto;   
+  padding: 0.75rem 1.5rem; 
+  display: flex;
+  justify-content: flex-start; 
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.barra-progresso .etapa.ativa {
+  font-weight: bold;
+  color: var(--texto-escuro);
+}

@@ -1,0 +1,139 @@
+.cardProduto {
+  background-color: var(--fundo-card);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+/* Layout Superior (Imagem + Dados) */
+.topoCard {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
+
+.imagemContainer {
+  width: 100px;
+  height: 100px;
+  aspect-ratio: 1 / 1; /* 👈 Imagem perfeitamente quadrada */
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  flex-shrink: 0;
+}
+
+.imagemProduto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.conteudoProduto {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.categoriaProduto {
+  font-size: 0.75rem;
+  color: var(--texto-suave);
+}
+
+.nomeProduto {
+  font-size: 1rem;
+  font-weight: bold;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.descricaoCurta {
+  display: none;
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+  margin-bottom: 0.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.precoProduto {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: var(--texto-escuro);
+}
+
+.linkDetalhesMobile {
+  font-size: 0.8rem;
+  color: var(--roxo-principal);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btnAdicionarCarrinho {
+  background-color: var(--laranja-botao);
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  color: var(--texto-escuro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: background 0.2s;
+  margin-top: auto;
+}
+
+.btnAdicionarCarrinho:hover {
+  background-color: var(--laranja-hover);
+}
+
+.linkDetalhesDesktop {
+  display: none;
+}
+
+/* Ajustes para Desktop */
+@media (min-width: 768px) {
+  .topoCard {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .imagemContainer {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* 👈 Quadrada no Desktop também */
+  }
+
+  .descricaoCurta {
+    display: -webkit-box;
+  }
+
+  .linkDetalhesMobile {
+    display: none;
+  }
+
+  .linkDetalhesDesktop {
+    display: block;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--roxo-principal);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .linkDetalhesDesktop:hover {
+    text-decoration: underline;
+  }
+}
