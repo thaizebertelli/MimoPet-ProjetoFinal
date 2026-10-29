@@ -1,54 +1,77 @@
-# MimoPet Web
+# MimoPet Web — Projeto Final
 
-Aplicação web desenvolvida em **React** e **Vite** para simulação de um fluxo completo de checkout (carrinho, formulário de pagamento com validação e telas de conclusão) de um e-commerce pet.  
-O sistema permite ao usuário gerenciar os itens no carrinho, preencher dados de pagamento em tempo real com máscaras e validações, e receber o resultado do processamento (aprovação ou detecção de fraude).
+Aplicação web desenvolvida em **React** e **Vite** para simulação de uma experiência completa de e-commerce pet: desde a navegação no catálogo, busca e filtragem de produtos, até o fluxo completo de checkout (carrinho, formulário de pagamento com validação e telas de conclusão).
+
+O sistema permite ao usuário navegar pelo catálogo, visualizar detalhes de produtos, gerenciar os itens na sacola via estado global (Context API), preencher dados de pagamento em tempo real com máscaras e validações, e receber o resultado do processamento (aprovação ou detecção de fraude), além de contar com uma página customizada para rotas inexistentes (Erro 404).
+
+---
+
+## Link do Projeto Online (GitHub Pages)
+
+**[Acessar a Aplicação MimoPet](https://thaizebertelli.github.io/MimoPet-ProjetoFinal/)**
 
 ---
 
 ## Objetivo
 
-O projeto foi desenvolvido como Projeto Final do Módulo de Front-end / React.  
-O objetivo foi construir uma SPA (Single Page Application) responsiva, aplicando conceitos avançados de estado local, validação de formulários com Zod e React Hook Form, simulação assíncrona e boas práticas de Git, sem a utilização de estado global (Redux/Context API).
+O projeto foi desenvolvido como **Projeto Final** do Módulo de Front-end / React do curso SCTEC.  
+O objetivo foi construir uma SPA (Single Page Application) totalmente responsiva, modularizada e acessível, aplicando conceitos avançados de gerenciamento de estado global com **Context API**, validação de formulários com **Zod** e **React Hook Form**, simulação assíncrona, roteamento dinâmico com **React Router Dom** e deploy automatizado.
 
 ---
 
 ## Funcionalidades
 
-- **Gerenciamento do Carrinho**: Visualização de produtos, alteração de quantidades e remoção de itens com atualização dinâmica do resumo do pedido.
-- **Header Dinâmico**: Indicador visual de etapas do checkout e contador de itens na sacola.
+- **Catálogo & Pesquisa de Produtos**:
+  - Busca de produtos em tempo real por nome.
+  - Filtragem dinâmica de produtos por categorias (Cães, Gatos, Acessórios, Alimentos, etc.).
+  - Visualização de detalhes em página dedicada para cada produto.
+- **Gerenciamento de Estado Global (Carrinho)**:
+  - Contexto global (`CarrinhoContext`) para persistência e compartilhamento do estado da sacola de compras entre todas as telas.
+  - Adição, alteração de quantidade e remoção de itens com atualização automática dos totais e do badge numérico no header.
+- **Página de Erro 404 e de produtos inexistentes**:
+  - Layout integrado via CSS Modules para rotas não encontradas ou produtos inexistentes.
+- **Header Dinâmico**:
+  - Indicador visual de etapas do checkout e contador responsivo de itens no carrinho.
 - **Formulário de Pagamento com Máscaras e Filtros**:
-  - Máscara para número de cartão com limitação de 16 dígitos e separação visual a cada 4 números.
+  - Máscara para número de cartão (limitação de 16 dígitos com separação a cada 4 números).
   - Filtro para data de validade (`MM/AA`) com formatação automática da barra `/`.
   - Limitação do CVV para 3 dígitos numéricos.
-  - Limitação do nome do titular para apenas letras e até 50 caracteres.
-- **Detecção de Fraude (Regra de Negócio)**: Identificação automática de cartões com 16 dígitos idênticos (ex: `1111 1111 1111 1111`), direcionando para a tela de erro.
-- **Simulação Assíncrona de Compra**: Hook customizado com estado de carregamento e spinner visual antes da finalização.
-- **Telas de Conclusão**: Telas exclusivas para "Compra Aprovada" e "Tentativa de Golpe" com direcionamento correto de navegação.
-- **Interface Responsiva (Mobile-First)**: Layout adaptado para smartphones, tablets e desktops.
+  - Validação de nome do titular apenas com letras e até 50 caracteres.
+- **Detecção de Fraude (Regra de Negócio)**:
+  - Identificação automática de cartões com 16 dígitos idênticos (ex: `1111 1111 1111 1111`), direcionando para a tela de erro/tentativa de golpe.
+- **Simulação Assíncrona de Compra**:
+  - Custom Hook (`usePagamento`) com estado de carregamento e spinner visual antes da finalização.
+- **Telas de Conclusão**:
+  - Telas de "Compra Aprovada" e "Tentativa de Golpe" com redirecionamento correto e opção de retorno à loja.
+- **Interface Responsiva (Mobile-First)**:
+  - Design totalmente adaptável para smartphones, tablets e desktops.
 
 ---
 
 ## Tecnologias Utilizadas
 
-- **React** (Vite)
-- **React Router Dom** (Navegação SPA)
-- **React Hook Form** (Gerenciamento de formulários)
-- **Zod** & **@hookform/resolvers** (Validação de esquemas e dados)
-- **CSS3** (Variáveis globais, Flexbox, CSS Grid, Mídia Queries)
-- **SVGs nativos** (Ícones vetoriais em todas as telas)
+- **React 18** (Vite)
+- **React Router Dom** (Roteamento SPA com `basename` dinâmico)
+- **Context API** (Gerenciamento global de estado do carrinho)
+- **React Hook Form** (Gerenciamento simplificado de formulários)
+- **Zod** & **@hookform/resolvers** (Validação de esquemas e regras de negócio)
+- **CSS3 / CSS Modules** (Variáveis globais, Flexbox, CSS Grid e escopo modular)
+- **SVGs Nativos** (Ícones e ilustrações vetoriais otimizadas)
+- **gh-pages** (Deploy e hospedagem automatizada no GitHub Pages)
 
 ---
 
 ## Conceitos Aplicados
 
-- Componentização e reuso de componentes UI
-- Hooks nativos (`useState`, `useEffect`) e Custom Hooks (`usePagamento`)
-- Manipulação e transformação de dados em formulários
-- Validação de esquemas com Zod (`regex`, `transform`, `refine`)
-- Estilização com CSS modularizado e variáveis de ambiente
-- Roteamento declarativo com React Router Dom
-- Gitflow e fluxo de branches (`feature/*`, `develop`, `main`)
-- HTML Semântico e Acessibilidade (atributos `aria-label`)
+- Componentização avançada e reuso de componentes UI
+- Arquitetura de estado global com React Context (`CarrinhoContext`)
+- Hooks nativos (`useState`, `useEffect`, `useContext`) e Custom Hooks (`usePagamento`)
+- Roteamento SPA declarativo com manipulação de parâmetros de URL (`useParams`) e rotas curinga (`*`)
+- Validação estrita de formulários com Zod (`regex`, `transform`, `refine`)
+- Estilização modular via CSS Modules para evitar conflito de seletores
+- Compatibilidade de rotas em subpastas no GitHub Pages (`import.meta.env.BASE_URL`)
+- Padrão de versionamento com Gitflow (`feature/*`, `develop`, `main`)
+- HTML Semântico e Acessibilidade (atributos `aria-label`, contraste e suporte a leitores de tela)
 
 ---
 
@@ -57,44 +80,67 @@ O objetivo foi construir uma SPA (Single Page Application) responsiva, aplicando
 ```text
 mimopet/
 │
+├── src/
+│   ├── assets/
+│   │   ├── img/
+│   │   └── styles/
+│   │       ├──Catalogo.module.css
+│   │       ├──DetalhesProduto.css
+│   │       ├──Footer.css
+│   │       ├──Header.css
+│   │       ├──ProdutoCard.module.css
+│   │       ├── index.css
+│   │       └── ProdutoNaoEncontrado.module.css
+│   │
+│   ├── components/
+│   │   ├── Footer.jsx
+│   │   ├── Header.jsx
+│   │   ├── ItemCarrinho.jsx
+│   │   ├── ResumoCompra.jsx
+│   │   └── ProdutoCard.jsx
+│   │
+│   ├── context/
+│   │   └── CarrinhoContext.jsx
+│   │
+│   ├── hooks/
+│   │   └── usePagamento.js
+│   │
+│   ├── pages/
+│   │   ├── Catalogo.jsx
+│   │   ├── DetalhesProduto.jsx
+│   │   ├── Carrinho.jsx
+│   │   ├── Pagamento.jsx
+│   │   ├── Sucesso.jsx
+│   │   ├── Falha.jsx
+│   │   ├── ProdutoNaoEncontrado.jsx
+│   │   └── Erro404.jsx
+│   │
+│   ├── Services/
+│   │   └── api.js
+│   │
+│   ├── utils/
+│   │   ├── carrinhoUtils.js
+│   │   ├── formatador.js
+│   │   └── pagamento.js
+│   │
+│   ├── App.jsx
+│   ├── App.css
+│   └── main.jsx
+│
+├── db.json
 ├── index.html
 ├── package.json
 ├── vite.config.js
-├── README.md
-│
-└── src/
-    ├── assets/
-    │   ├── img/
-    │   └── styles/
-    │       └── index.css
-    │
-    ├── components/
-    │   ├── Header.jsx
-    │   ├── ItemCarrinho.jsx
-    │   └── ResumoCompra.jsx
-    │
-    ├── data/
-    │   └── produtos.js
-    │
-    ├── hooks/
-    │   └── usePagamento.js
-    │
-    ├── pages/
-    │   ├── Carrinho.jsx
-    │   ├── Pagamento.jsx
-    │   ├── Sucesso.jsx
-    │   └── Falha.jsx
-    │
-    ├── App.jsx
-    └── main.jsx
+└── README.md
 ```
+
 ---
 
 ## Como Executar o Projeto Localmente
 
 1. **Clone o repositório:**
    ```bash
-   git clone [https://github.com/thaizebertelli/MimoPet.git](https://github.com/thaizebertelli/MimoPet.git)
+   git clone [https://github.com/thaizebertelli/MimoPet-ProjetoFinal.git](https://github.com/thaizebertelli/MimoPet-ProjetoFinal.git)
 
    1. Acesse a pasta da aplicação:
    cd MimoPet/mimopet
@@ -102,7 +148,10 @@ mimopet/
    2.Instale as dependências:
    npm install
 
-   3.Inicie o servidor de desenvolvimento:
+   3.Inicie o servidor de API
+   npx json-server --watch db.json --port 3001
+
+   4.Inicie o servidor de desenvolvimento:
    npm run dev
 
    3.Abra a URL informada no terminal (ex: http://localhost:5173) no navegador.
@@ -111,23 +160,51 @@ mimopet/
 
 ## Funcionamento da Aplicação
 
-O usuário visualiza os produtos no Carrinho e pode alterar a quantidade ou remover itens.
+1.Catálogo & Catálogo Interativo:
 
-Ao clicar em "Continuar para pagamento", é direcionado para a tela de Pagamento.
+Ao acessar a página inicial, o usuário visualiza o catálogo completo de produtos consumido da API (json-server), podendo filtrar os itens por categorias ou utilizar a barra de busca em tempo real.
 
-O usuário preenche os dados do cartão, formatados automaticamente em tempo real.
+Clicar em um produto direciona o usuário para a página de detalhes, exibindo informações completas.
 
-O formulário valida os dados utilizando Zod:
+2.Gerenciamento do Carrinho:
 
-Cartões com 16 dígitos diferentes aprovam a transação.
+O usuário pode adicionar produtos à sacola. O estado é gerenciado de forma global via CarrinhoContext.
 
-Cartões com 16 dígitos idênticos são identificados como fraude.
+Na página do carrinho, é possível alterar as quantidades de cada item, remover produtos e visualizar a atualização dinâmica do valor total do pedido.
 
-O sistema exibe um estado visual de processamento (spinner).
+3.Fluxo de Checkout e Pagamento:
 
-O usuário é redirecionado para a tela de Sucesso ("Compra Aprovada!") ou Falha ("tentativa de golpe").
+Ao clicar em "Continuar para pagamento", o usuário é direcionado para a tela de Pagamento.
 
----
+Os campos do formulário preenchem e formatam os dados do cartão de crédito automaticamente em tempo real (número com separação a cada 4 dígitos, validade MM/AA, CVV e nome do titular).
+
+4.Validação e Regras de Negócio com Zod:
+
+O formulário valida estritamente os campos utilizando Zod e React Hook Form.
+
+Regra anti-fraude: Se forem informados 16 dígitos idênticos (ex: 1111 1111 1111 1111), o sistema identifica a transação como tentativa de golpe. Cartões válidos com 16 dígitos diferentes aprovam a transação.
+
+5.rocessamento e Conclusão:
+
+Ao submeter o pagamento, o sistema exibe um estado visual de carregamento (spinner) simulando a requisição assíncrona.
+
+O usuário é redirecionado para a tela de Sucesso ("Compra Aprovada!") ou Falha ("Tentativa de Golpe"), com opções para retornar à loja e reiniciar a navegação.
+
+## Organização Kanban
+
+O projeto foi organizado utilizando a metodologia Kanban através do Trello.
+
+As tarefas foram separadas nas colunas:
+
+-Backlog
+
+-A fazer
+
+-Em andamento
+
+-Concluído
+
+Link do quadro Kaban: https://trello.com/b/AVSLpmDc/mimopet-projeto-final
 
 ## Controle de Versão
 
@@ -149,6 +226,6 @@ Assistir vídeo de apresentação (Em breve)
 
 Thaize de Paula Bertelli
 
-Mini Projeto — Desenvolvimento Front-End / React
+Projeto Final — Desenvolvimento Front-End / React
 
-Setembro • 2026
+Outubro • 2026
