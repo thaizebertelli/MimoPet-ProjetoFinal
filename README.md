@@ -197,9 +197,13 @@ O projeto foi organizado utilizando a metodologia Kanban através do Trello.
 As tarefas foram separadas nas colunas:
 
 -Backlog
+
 -A fazer
+
 -Em andamento
+
 -Concluído
+
 Link do quadro Kaban: https://trello.com/b/AVSLpmDc/mimopet-projeto-final
 
 ## Controle de Versão
