@@ -220,7 +220,7 @@ feature/*: Branches dedicadas para telas e refinamentos específicos (ex: featur
 
 O vídeo de demonstração do projeto pode ser acessado pelo link abaixo:
 
-Assistir vídeo de apresentação (Em breve)
+[Assistir vídeo de apresentação](https://youtu.be/ifF12TwLYDw?si=DzE0QsCVFzOcNDiS)
 
 ## Desenvolvido por
 
